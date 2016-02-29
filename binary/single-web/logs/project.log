@@ -1,0 +1,53 @@
+2016-02-25 15:22:47  [ main:0 ] - [ INFO ]  start jetty-server ......
+2016-02-25 15:22:47  [ main:3 ] - [ INFO ]  begin initialization QueuedThreadPool ......
+2016-02-25 15:22:47  [ main:6 ] - [ INFO ]  begin initialization SelectChannelConnector ......
+2016-02-25 15:22:47  [ main:25 ] - [ INFO ]  Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2016-02-25 15:22:47  [ main:25 ] - [ INFO ]  begin initialization Server ......
+2016-02-25 15:22:47  [ main:36 ] - [ INFO ]  begin initialization WebAppContext ......
+2016-02-25 15:22:47  [ main:36 ] - [ INFO ]   initialization app-root '/single-web=src/main/webapp' ...... 
+2016-02-25 15:22:47  [ main:72 ] - [ INFO ]  begin start server ......
+2016-02-25 15:22:47  [ main:73 ] - [ INFO ]  jetty-6.1.26
+2016-02-25 15:22:47  [ main:137 ] - [ WARN ]  Failed startup of context org.mortbay.jetty.webapp.WebAppContext@4aa0a82c{/single-web,src/main/webapp}
+java.io.FileNotFoundException: E:\workspace\asiainfo\binary\binary\single-web\binary\jetty\web-default.xml (系统找不到指定的路径。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at java.io.FileInputStream.<init>(FileInputStream.java:101)
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:619)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(XMLVersionDetector.java:189)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:812)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:777)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:648)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl.parse(SAXParserImpl.java:332)
+	at org.mortbay.xml.XmlParser.parse(XmlParser.java:188)
+	at org.mortbay.xml.XmlParser.parse(XmlParser.java:204)
+	at org.mortbay.jetty.webapp.WebXmlConfiguration.configure(WebXmlConfiguration.java:221)
+	at org.mortbay.jetty.webapp.WebXmlConfiguration.configureDefaults(WebXmlConfiguration.java:162)
+	at org.mortbay.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1262)
+	at org.mortbay.jetty.handler.ContextHandler.doStart(ContextHandler.java:518)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:499)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at com.binary.application.jetty.JettyServer.start(JettyServer.java:281)
+	at com.binary.application.jetty.JettyMain.main(JettyMain.java:12)
+	at com.binary.singleweb.primarykey.test.TestMain.main(TestMain.java:10)
+2016-02-25 15:22:47  [ main:156 ] - [ INFO ]  Started SelectChannelConnector@0.0.0.0:1900
+2016-02-25 15:22:47  [ main:157 ] - [ INFO ]  start server successful.
+2016-02-25 15:24:13  [ main:0 ] - [ INFO ]  start jetty-server ......
+2016-02-25 15:24:13  [ main:3 ] - [ INFO ]  begin initialization QueuedThreadPool ......
+2016-02-25 15:24:13  [ main:7 ] - [ INFO ]  begin initialization SelectChannelConnector ......
+2016-02-25 15:24:13  [ main:27 ] - [ INFO ]  Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2016-02-25 15:24:13  [ main:28 ] - [ INFO ]  begin initialization Server ......
+2016-02-25 15:24:13  [ main:39 ] - [ INFO ]  begin initialization WebAppContext ......
+2016-02-25 15:24:13  [ main:39 ] - [ INFO ]   initialization app-root '/single-web=src/main/webapp' ...... 
+2016-02-25 15:24:13  [ main:78 ] - [ INFO ]  begin start server ......
+2016-02-25 15:24:13  [ main:78 ] - [ INFO ]  jetty-6.1.26
+2016-02-25 15:24:14  [ main:431 ] - [ INFO ]  Started SelectChannelConnector@0.0.0.0:1900
+2016-02-25 15:24:14  [ main:431 ] - [ INFO ]  start server successful.

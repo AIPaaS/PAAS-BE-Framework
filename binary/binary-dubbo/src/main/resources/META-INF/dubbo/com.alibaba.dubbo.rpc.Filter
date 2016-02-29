@@ -1,0 +1,2 @@
+DubboProviderInterceptor=com.binary.dubbo.intercept.impl.DubboProviderInterceptor
+DubboConsumerInterceptor=com.binary.dubbo.intercept.impl.DubboConsumerInterceptor

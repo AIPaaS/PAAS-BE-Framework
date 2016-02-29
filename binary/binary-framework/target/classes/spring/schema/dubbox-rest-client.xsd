@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://dubbox.aic.com/schema/rest/client"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://dubbox.aic.com/schema/rest/client">
+
+		
+	<xsd:element name="rest">
+		<xsd:complexType>
+			<xsd:attribute name="id" type="xsd:string" />
+			<xsd:attribute name="interface" type="xsd:string" />
+			<xsd:attribute name="client" type="xsd:string" />
+		</xsd:complexType>
+	</xsd:element>
+
+	
+</xsd:schema>  

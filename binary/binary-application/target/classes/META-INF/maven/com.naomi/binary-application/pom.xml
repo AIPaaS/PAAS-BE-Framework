@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.naomi</groupId>
+		<artifactId>binary</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>binary-application</artifactId>
+	
+	
+	
+	<dependencies>
+		<dependency>
+	  		<groupId>com.naomi</groupId>
+	    	<artifactId>binary-core</artifactId>
+	    	<version>${binary.version}</version>
+	  	</dependency>
+	  	<dependency>
+	  		<groupId>org.slf4j</groupId>
+	  		<artifactId>slf4j-log4j12</artifactId>
+	  		<version>${slf4j.version}</version>
+	  	</dependency>
+	  	<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jetty</artifactId>
+			<version>${org.mortbay.jetty.version}</version>
+	    </dependency>
+	</dependencies>
+	
+	
+</project>

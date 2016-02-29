@@ -1,0 +1,15 @@
+com.binary.jdbc
+com.binary.jdbc.adapter
+com.binary.jdbc.adapter.support
+com.binary.jdbc.adapter.support.mssql
+com.binary.jdbc.adapter.support.mysql
+com.binary.jdbc.adapter.support.oracle
+com.binary.jdbc.db
+com.binary.jdbc.db.support
+com.binary.jdbc.ds
+com.binary.jdbc.ds.support
+com.binary.jdbc.exception
+com.binary.jdbc.print
+com.binary.jdbc.print.support
+com.binary.jdbc.support
+com.binary.jdbc.util

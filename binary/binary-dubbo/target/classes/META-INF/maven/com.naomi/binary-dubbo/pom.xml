@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.naomi</groupId>
+		<artifactId>binary</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>binary-dubbo</artifactId>
+	
+	
+	
+	
+	
+	<dependencies>
+		<dependency>
+	  		<groupId>com.naomi</groupId>
+	    	<artifactId>binary-core</artifactId>
+	    	<version>${binary.version}</version>
+	  	</dependency>
+	  	
+	  	<dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-aop</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-aspects</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-beans</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-context</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-context-support</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-core</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-expression</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-jdbc</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-jms</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-orm</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-test</artifactId>
+	        <version>${spring.version}</version>
+	        <scope>test</scope>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-tx</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-web</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-webmvc</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>aopalliance</groupId>
+	        <artifactId>aopalliance</artifactId>
+	        <version>${aopalliance.version}</version>
+	    </dependency>
+	  	
+  		<dependency>
+	      <groupId>com.alibaba</groupId>
+	      <artifactId>dubbox</artifactId>
+	      <version>${com.alibaba.dubbo.version}</version>
+	      <exclusions>
+	        <exclusion>
+	          <artifactId>spring</artifactId>
+	          <groupId>org.springframework</groupId>
+	        </exclusion>
+	      </exclusions>
+	    </dependency>
+	    
+	    <dependency>
+	  		<groupId>org.slf4j</groupId>
+	  		<artifactId>slf4j-log4j12</artifactId>
+	  		<version>${slf4j.version}</version>
+	  	</dependency>
+	  	
+	  	
+	  	
+	</dependencies>
+</project>
