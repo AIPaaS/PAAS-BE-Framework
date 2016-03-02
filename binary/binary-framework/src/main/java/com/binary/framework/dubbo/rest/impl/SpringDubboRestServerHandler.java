@@ -16,6 +16,7 @@ import com.binary.framework.dubbo.rest.DubboRestParam;
 import com.binary.framework.dubbo.rest.DubboRestResult;
 import com.binary.framework.dubbo.rest.DubboRestServerHandler;
 import com.binary.framework.exception.ServiceException;
+import com.binary.framework.util.ExceptionUtil;
 import com.binary.json.JSON;
 
 public class SpringDubboRestServerHandler implements DubboRestServerHandler, ApplicationContextAware {
@@ -67,7 +68,7 @@ public class SpringDubboRestServerHandler implements DubboRestServerHandler, App
 			result = new DubboRestResult(rs);
 		}catch(Throwable t) {
 			logger.error(" call '"+jsonParam+"' error! ", t);
-			result = new DubboRestResult(t);
+			result = new DubboRestResult(ExceptionUtil.getRealThrowable(t));
 		}
 		
 		return JSON.toString(result);
