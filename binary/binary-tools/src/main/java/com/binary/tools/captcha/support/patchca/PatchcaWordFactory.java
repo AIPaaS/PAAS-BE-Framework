@@ -21,8 +21,9 @@ public class PatchcaWordFactory implements WordFactory {
 	
 	
 	public PatchcaWordFactory() {
-		//去除英文字母: O、o、l
-		this("ABCDEFGHIJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz0123456789", 6, 6);
+		//去除英文字母: G、I、J、L、O、Q、Z、g、i、j、l、o、z
+		//去除数字0、l、、2、9
+		this("ABCDEFHKMNPRSTUVWXYabcdefhkmnprstuvwxy345678", 6, 6);
 	}
 	public PatchcaWordFactory(String characters, int minLength, int maxLength) {
 		this.characters = characters.trim();

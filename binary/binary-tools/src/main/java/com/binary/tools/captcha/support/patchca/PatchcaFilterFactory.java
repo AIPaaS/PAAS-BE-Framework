@@ -7,6 +7,7 @@ import java.util.List;
 import org.patchca.color.ColorFactory;
 import org.patchca.filter.FilterFactory;
 import org.patchca.filter.predefined.RippleFilterFactory;
+import org.patchca.filter.predefined.WobbleRippleFilterFactory;
 
 import com.binary.core.util.BinaryUtils;
 import com.binary.tools.exception.CaptchaException;

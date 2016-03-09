@@ -135,12 +135,12 @@ public class PatchcaBackgroundFactory implements BackgroundFactory {
 		}
 		
 		//画干扰线
-		for(int i=0; i<this.lineCount; i++) {
+		/*for(int i=0; i<this.lineCount; i++) {
 			int x1 = (int)BinaryUtils.random(imgWidth);
 			int y1 = (int)BinaryUtils.random(imgHeight);
 			int x2 = (int)BinaryUtils.random(imgWidth);
 			int y2 = (int)BinaryUtils.random(imgHeight);
 			graphics.drawLine(x1, y1, x2, y2);
-		}
+		}*/
 	}
 }
