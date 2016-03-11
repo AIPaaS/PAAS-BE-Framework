@@ -6,8 +6,7 @@ import java.util.List;
 
 import org.patchca.color.ColorFactory;
 import org.patchca.filter.FilterFactory;
-import org.patchca.filter.predefined.CurvesRippleFilterFactory;
-import org.patchca.filter.predefined.DoubleRippleFilterFactory;
+import org.patchca.filter.predefined.RippleFilterFactory;
 import org.patchca.filter.predefined.WobbleRippleFilterFactory;
 
 import com.binary.core.util.BinaryUtils;
@@ -25,11 +24,13 @@ public class PatchcaFilterFactory implements FilterFactory {
 	
 	public PatchcaFilterFactory(ColorFactory colorFactory) {
 		this.filterFactories = new ArrayList<FilterFactory>();
-		this.filterFactories.add(new DoubleRippleFilterFactory());
-		this.filterFactories.add(new CurvesRippleFilterFactory(colorFactory));
-//		this.filterFactories.add(new DiffuseRippleFilterFactory());
-//		this.filterFactories.add(new MarbleRippleFilterFactory());
-		this.filterFactories.add(new WobbleRippleFilterFactory());
+		//this.filterFactories.add(new DoubleRippleFilterFactory()); //双波纹  
+//		this.filterFactories.add(new CurvesRippleFilterFactory(colorFactory));  //干扰线波纹
+//		this.filterFactories.add(new DiffuseRippleFilterFactory());  ////漫波纹
+//		this.filterFactories.add(new MarbleRippleFilterFactory()); //大理石波纹  
+		//this.filterFactories.add(new WobbleRippleFilterFactory()); ////摆波纹  
+		this.filterFactories.add(new RippleFilterFactory()); 
+		
 	}
 	
 	
