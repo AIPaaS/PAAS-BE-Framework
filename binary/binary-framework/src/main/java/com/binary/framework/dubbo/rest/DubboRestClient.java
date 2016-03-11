@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.client.config.RequestConfig.Builder;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
@@ -37,6 +38,11 @@ public class DubboRestClient {
 	private String url;
 	
 	
+	private RequestConfig requestConfig;
+	private org.apache.http.client.config.RequestConfig apacheRequestConfig;
+	
+	
+	
 	public DubboRestClient(String restRoot) {
 		BinaryUtils.checkEmpty(restRoot, "restRoot");
 		this.restRoot = HttpUtils.formatContextPath(restRoot).substring(1);
@@ -46,6 +52,41 @@ public class DubboRestClient {
 	
 	
 	
+	public RequestConfig getRequestConfig() {
+		return requestConfig;
+	}
+	
+	
+	@SuppressWarnings("deprecation")
+	public void setRequestConfig(RequestConfig requestConfig) {
+		this.requestConfig = requestConfig;
+		this.apacheRequestConfig = null;
+		
+		if(requestConfig != null) {
+			Builder b = org.apache.http.client.config.RequestConfig.custom();
+			if(requestConfig.getTimeout() != null) {
+				b.setConnectTimeout(requestConfig.getConnectTimeout()).setSocketTimeout(requestConfig.getConnectTimeout());
+			}
+			if(requestConfig.getExpectContinueEnabled() != null) b.setExpectContinueEnabled(requestConfig.getExpectContinueEnabled());
+			if(requestConfig.getProxy() != null) b.setProxy(requestConfig.getProxy());
+			if(requestConfig.getLocalAddress() != null) b.setLocalAddress(requestConfig.getLocalAddress());
+			if(requestConfig.getStaleConnectionCheckEnabled() != null) b.setStaleConnectionCheckEnabled(requestConfig.getStaleConnectionCheckEnabled());
+			if(requestConfig.getCookieSpec() != null) b.setCookieSpec(requestConfig.getCookieSpec());
+			if(requestConfig.getRedirectsEnabled() != null) b.setRedirectsEnabled(requestConfig.getRedirectsEnabled());
+			if(requestConfig.getRelativeRedirectsAllowed() != null) b.setRelativeRedirectsAllowed(requestConfig.getRelativeRedirectsAllowed());
+			if(requestConfig.getCircularRedirectsAllowed() != null) b.setCircularRedirectsAllowed(requestConfig.getCircularRedirectsAllowed());
+			if(requestConfig.getMaxRedirects() != null) b.setMaxRedirects(requestConfig.getMaxRedirects());
+			if(requestConfig.getAuthenticationEnabled() != null) b.setAuthenticationEnabled(requestConfig.getAuthenticationEnabled());
+			if(requestConfig.getConnectionRequestTimeout() != null) b.setConnectionRequestTimeout(requestConfig.getConnectionRequestTimeout());
+			if(requestConfig.getConnectTimeout() != null) b.setConnectTimeout(requestConfig.getConnectTimeout());
+			if(requestConfig.getSocketTimeout() != null) b.setSocketTimeout(requestConfig.getSocketTimeout());
+			if(requestConfig.getContentCompressionEnabled() != null) b.setContentCompressionEnabled(requestConfig.getContentCompressionEnabled());
+			this.apacheRequestConfig = b.build();
+		}
+	}
+
+
+
 	public Object request(String beanName, String methodName, Object[] args, Class<?> resultType, Type resultGenericType) throws Throwable {
 		BinaryUtils.checkEmpty(beanName, "beanName");
 		BinaryUtils.checkEmpty(methodName, "methodName");
@@ -76,6 +117,9 @@ public class DubboRestClient {
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost(new URL(this.url).toURI());
+        if(this.apacheRequestConfig != null) {
+        	httpPost.setConfig(this.apacheRequestConfig);
+        }
         StringEntity dataEntity = new StringEntity(data, ContentType.APPLICATION_JSON);
         httpPost.setEntity(dataEntity);
         CloseableHttpResponse response = httpclient.execute(httpPost);
