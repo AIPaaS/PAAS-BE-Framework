@@ -16,7 +16,6 @@ import com.binary.core.http.URLResolver;
 import com.binary.core.lang.ClassUtils;
 import com.binary.core.lang.Conver;
 import com.binary.core.util.BinaryUtils;
-import com.binary.framework.Local;
 import com.binary.framework.bean.User;
 import com.binary.framework.util.ControllerUtils;
 import com.binary.framework.web.SessionKey;
@@ -109,16 +108,7 @@ public class SsoClientAuthMvc implements ApplicationContextAware {
 	 */
 	@RequestMapping("/verifyLogin")
 	public String verifyLogin(HttpServletRequest request, HttpServletResponse response) {
-		User user = Local.getUser();
-				
-		//用户已登录
-		if(user != null) {
-			return "redirect:"+configuration.getNoBeforeUrl();
-		}
-		//用户未登录
-		else {
 			return "forward:/sso/client/auth/notLogin";
-		}
 	}
 	
 	
