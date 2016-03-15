@@ -120,7 +120,13 @@ public abstract class AbstractDao<E extends EntityBean, F extends Condition> imp
 	 * @param value
 	 */
 	protected void setDataStatusValue(F f, int value) {
-		getDaoDefinition().setDataStatusValue(f, value);
+		DaoDefinition<E, F> def = getDaoDefinition();
+		if(def.hasDataStatusField()) {
+			BMProxy<F> proxy = BMProxy.getInstance(f);
+			if(proxy.get("dataStatus") == null) {
+				def.setDataStatusValue(f, value);
+			}
+		}
 	}
 	
 		
