@@ -24,7 +24,7 @@ public class TestSpring extends TestTemplate {
 	
 	
 	
-	@Test
+	/*@Test
 	public void queryDefById() {
 		SysCodeDef def = svc.queryDefById(1l);
 		System.out.println(JSON.toString(def));
@@ -51,7 +51,7 @@ public class TestSpring extends TestTemplate {
 		List<SysCodeDef> ls = svc.queryDefList(cdt, " ID ");
 		
 		printList(ls);
-	}
+	}*/
 	
 	
 	

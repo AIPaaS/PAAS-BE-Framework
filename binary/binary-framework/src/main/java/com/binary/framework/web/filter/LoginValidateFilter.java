@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.binary.core.http.URLResolver;
+import com.binary.core.lang.StringUtils;
 import com.binary.core.util.BinaryUtils;
 import com.binary.core.util.WildcardPatternBuilder;
 import com.binary.framework.bean.User;
@@ -124,7 +125,30 @@ public class LoginValidateFilter implements Filter {
 		HttpSession session = request.getSession(false);
 		if(session == null) return false;
 		Object obj = session.getAttribute(SessionKey.SYSTEM_USER);
-		return obj!=null && (obj instanceof User);
+		
+		if(obj == null) {
+			return false;
+		}		
+		if(!(obj  instanceof User)) {
+			return false;
+		}				
+		String reload = request.getParameter("reload");	
+		
+		//只有点击左侧菜单时，才会有reload
+		if(StringUtils.isBlank(reload)){
+			return true;
+		}else{
+			User user  = (User) obj;			
+			if(reload.equals(user.getUserId())){
+				return true;
+			}else{
+				return false;			
+			}	
+		}
+		
+				
+				
+		
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -139,7 +163,7 @@ public class LoginValidateFilter implements Filter {
 					
 					String exit = this.resultRequestHeaderMap.get(name.trim().toUpperCase());
 					if(exit!=null && exit.equalsIgnoreCase(value.trim())) {
-						RemoteResult rs = new RemoteResult(ErrorCode.NOT_LOGIN, " must be login! ");
+						RemoteResult rs = new RemoteResult(ErrorCode.NOT_LOGIN, "页面已超时，请重新登录！");
 						try {
 							PrintWriter pw = response.getWriter();
 							pw.write(JSON.toString(rs));
