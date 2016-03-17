@@ -163,7 +163,7 @@ public class LoginValidateFilter implements Filter {
 					
 					String exit = this.resultRequestHeaderMap.get(name.trim().toUpperCase());
 					if(exit!=null && exit.equalsIgnoreCase(value.trim())) {
-						RemoteResult rs = new RemoteResult(ErrorCode.NOT_LOGIN, " must be login! ");
+						RemoteResult rs = new RemoteResult(ErrorCode.NOT_LOGIN, "页面已超时，请重新登录！");
 						try {
 							PrintWriter pw = response.getWriter();
 							pw.write(JSON.toString(rs));
