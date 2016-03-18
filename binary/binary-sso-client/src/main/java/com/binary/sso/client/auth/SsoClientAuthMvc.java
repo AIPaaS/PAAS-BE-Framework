@@ -206,19 +206,33 @@ public class SsoClientAuthMvc implements ApplicationContextAware {
 				beforeUrl = URLResolver.decode(beforeUrl);
 			}
 			
-			String strmoduId = beforeUrl.substring(beforeUrl.lastIndexOf('/')+1,beforeUrl.length());
-			if(!BinaryUtils.isEmpty(strmoduId) ){
-				if(strmoduId.contains("?")){
-					strmoduId = strmoduId.substring(0,strmoduId.indexOf("?"));
-				}				
-				
-				client = HttpClient.getInstance(this.ssoServerRoot);
-				client.setRequestMethod("GET");
-				client.addRequestProperty("REQUEST_HEADER", "binary-http-client-header");
-				String verifyModuIdRetult = client.request("/external/operation/verifyModuCode?opId="+user.getId()+"&moduCode="+strmoduId);
-				if(!"true".equals(verifyModuIdRetult)){
-					beforeUrl = this.noBeforeUrl;					
+			String strmodu = beforeUrl.substring(beforeUrl.lastIndexOf('/')+1,beforeUrl.length());
+			if(!BinaryUtils.isEmpty(strmodu) ){
+				if(strmodu.contains("?")){
+					strmodu = strmodu.substring(0,strmodu.indexOf("?"));
 				}
+				
+				if(beforeUrl.indexOf("/mi/") > 0){
+					client = HttpClient.getInstance(this.ssoServerRoot);
+					client.setRequestMethod("GET");
+					client.addRequestProperty("REQUEST_HEADER", "binary-http-client-header");
+					String verifyModuIdRetult = client.request("/external/operation/verifyModuId?opId="+user.getId()+"&moduId="+strmodu);
+					if(!"true".equals(verifyModuIdRetult)){
+						beforeUrl = this.noBeforeUrl;					
+					}
+				}
+				
+				if(beforeUrl.indexOf("/mc/") > 0){
+					client = HttpClient.getInstance(this.ssoServerRoot);
+					client.setRequestMethod("GET");
+					client.addRequestProperty("REQUEST_HEADER", "binary-http-client-header");
+					String verifyModuIdRetult = client.request("/external/operation/verifyModuCode?opId="+user.getId()+"&moduCode="+strmodu);
+					if(!"true".equals(verifyModuIdRetult)){
+						beforeUrl = this.noBeforeUrl;					
+					}
+				}
+				
+				
 			}		
 			
 			
