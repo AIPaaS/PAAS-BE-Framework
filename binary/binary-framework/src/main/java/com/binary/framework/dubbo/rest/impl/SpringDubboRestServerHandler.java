@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContextAware;
 
 import com.binary.core.lang.ArrayUtils;
 import com.binary.core.util.BinaryUtils;
+import com.binary.framework.Local;
 import com.binary.framework.dubbo.rest.DubboRestParam;
 import com.binary.framework.dubbo.rest.DubboRestResult;
 import com.binary.framework.dubbo.rest.DubboRestServerHandler;
@@ -67,6 +68,7 @@ public class SpringDubboRestServerHandler implements DubboRestServerHandler, App
 			
 			result = new DubboRestResult(rs);
 		}catch(Throwable t) {
+			Local.rollback();
 			logger.error(" call '"+jsonParam+"' error! ", t);
 			result = new DubboRestResult(ExceptionUtil.getRealThrowable(t));
 		}
