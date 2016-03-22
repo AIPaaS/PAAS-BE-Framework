@@ -22,6 +22,8 @@ import com.binary.core.util.BinaryUtils;
  * @author wanwb
  */
 public abstract class EncryptAES {
+	
+	public static String EFAULT_KEY = "aced00057372001f6a617661782e63727970746f2e737065632e5365637265744b6579537065635b470b66e230614d0200024c0009616c676f726974686d7400124c6a6176612f6c616e672f537472696e673b5b00036b65797400025b427870740003414553757200025b42acf317f8060854e00200007870000000103ff07184a7fe26945d88aafc1b9ffe61";
 
 	
 	
@@ -112,7 +114,41 @@ public abstract class EncryptAES {
 	}
 	
 	
+	/**
+	 * 加密
+	 * @param key : 公钥/私钥
+	 * @param data : 被加密数据
+	 * @return 加密之后的密文
+	 */
+	public static String encrypt( String data) {
+		BinaryUtils.checkEmpty(data, false, "data");		
+		return encrypt(EFAULT_KEY,data);
+	}
 	
 	
+	
+	
+	
+	/**
+	 * 解密
+	 * @param key : 公钥/私钥
+	 * @param code : 密文
+	 * @return 解密之后数据
+	 */
+	public static String decrypt(String code) {
+		BinaryUtils.checkEmpty(code, false, "code");		
+		return decrypt(EFAULT_KEY,code);
+	}
+	
+	
+	public static void main(String[] args ){
+		
+		//String key = EncryptAES.getKey();
+		//System.out.println(key);
+		String pwd = "123456";
+		String resutl = EncryptAES.encrypt(pwd);
+		System.out.println(resutl);
+		System.out.println(EncryptAES.decrypt(resutl));
+	}
 	
 }
